@@ -63,9 +63,8 @@ controller never returns JSON, and the API controller never returns a view.
 
 | Code | Meaning | When |
 |---|---|---|
-| `200 OK` | Success | Successful `GET`, `PUT`/`PATCH` |
+| `200 OK` | Success | Successful `GET`, `PUT`/`PATCH`, `DELETE` (delete returns a confirmation message) |
 | `201 Created` | Resource created | Successful `POST` |
-| `204 No Content` | Success, no body | Successful `DELETE` |
 | `404 Not Found` | Resource doesn't exist | Task id not found |
 | `422 Unprocessable Entity` | Validation failed | Missing/invalid fields |
 
@@ -182,7 +181,7 @@ Same body/response as `PUT` in this API.
 DELETE /api/tasks/1
 ```
 
-Response: `204 No Content`.
+Response: `200 OK` with `{"message": "Task deleted successfully."}`.
 
 ### Mark complete / reopen (convenience endpoints)
 

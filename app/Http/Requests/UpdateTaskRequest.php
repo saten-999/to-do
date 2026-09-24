@@ -31,4 +31,17 @@ class UpdateTaskRequest extends FormRequest
             'due_date' => ['nullable', 'date'],
         ];
     }
+
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'status.in' => 'The status must be one of: ' . implode(', ', array_keys(Task::STATUSES)) . '.',
+            'priority.in' => 'The priority must be one of: ' . implode(', ', array_keys(Task::PRIORITIES)) . '.',
+        ];
+    }
 }

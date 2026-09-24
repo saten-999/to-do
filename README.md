@@ -99,6 +99,10 @@ Visit `http://127.0.0.1:8000` to see the dashboard.
 A REST API is exposed under `/api` for scripting or integrating with other clients. It returns JSON
 (no authentication required) and reuses the same validation rules as the web form.
 
+See [API.md](API.md) for a full beginner-friendly guide: what an API/REST is, web vs. API routes,
+HTTP methods/status codes, request headers, JSON request/response shapes, every endpoint with
+example payloads, and how to test the API with Postman.
+
 | Method | URI                          | Description                                              |
 |--------|------------------------------|------------------------------------------------------------|
 | GET    | `/api/tasks`                 | List tasks (supports `search`, `status`, `priority`, `due`, `sort`, `direction`, `per_page`) |
@@ -106,7 +110,7 @@ A REST API is exposed under `/api` for scripting or integrating with other clien
 | POST   | `/api/tasks`                 | Create a task                                              |
 | GET    | `/api/tasks/{task}`          | Show a single task                                         |
 | PUT    | `/api/tasks/{task}`          | Update a task                                              |
-| DELETE | `/api/tasks/{task}`          | Delete a task (returns `204 No Content`)                    |
+| DELETE | `/api/tasks/{task}`          | Delete a task (returns `200 OK` with a confirmation message) |
 | PATCH  | `/api/tasks/{task}/complete` | Mark a task as completed                                    |
 | PATCH  | `/api/tasks/{task}/reopen`   | Reopen a completed task                                     |
 
@@ -133,7 +137,8 @@ curl -X DELETE "http://127.0.0.1:8000/api/tasks/1" -H "Accept: application/json"
 ```
 
 Validation errors return `422 Unprocessable Entity` with a standard Laravel `{ "message": ..., "errors": {...} }`
-body. The API is covered by feature tests in `tests/Feature/Api/TaskApiTest.php`.
+body. The API is covered by feature tests in `tests/Feature/Api/TaskApiTest.php`. For full documentation
+(including Postman testing steps), see [API.md](API.md).
 
 ## Project structure
 
@@ -155,4 +160,5 @@ public/css/app.css
 public/js/app.js
 tests/Feature/TaskTest.php
 tests/Feature/Api/TaskApiTest.php
+API.md
 ```
