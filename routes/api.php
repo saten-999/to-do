@@ -9,9 +9,14 @@ use Illuminate\Support\Facades\Route;
 | API Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
+| These routes serve the REST API for the same Todo data, returning JSON
+| instead of Blade views. Use them from Postman, a JS frontend, or a
+| mobile app. See API.md for full request/response documentation.
+|
+|   Postman/Frontend/Mobile -> api.php -> Api\TaskController -> TaskResource -> JSON
+|
+| All routes below are prefixed with /api and use the "api" middleware
+| group (see bootstrap/app.php / RouteServiceProvider).
 |
 */
 

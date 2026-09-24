@@ -10,6 +10,10 @@ use App\Models\Task;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+/**
+ * API controller: handles REST requests and returns JSON via TaskResource.
+ * For the browser/Blade equivalent, see App\Http\Controllers\TaskController.
+ */
 class TaskController extends Controller
 {
     /**
